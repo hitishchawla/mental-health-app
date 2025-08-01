@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mental Health Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: #f2f2f2;
+            border-radius: 10px;
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Mental Health Prediction Form</h2>
+    <form action="/predict" method="post">
+
+        <label for="Gender">Gender</label>
+        <select name="Gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <label for="Age">Age</label>
+        <input type="number" name="Age" min="15" max="80" required>
+
+        <label for="Academic Pressure">Academic Pressure (1 to 5)</label>
+        <input type="number" name="Academic Pressure" min="1" max="5" step="1" required>
+
+        <label for="Study Satisfaction">Study Satisfaction (1 to 5)</label>
+        <input type="number" name="Study Satisfaction" min="1" max="5" step="1" required>
+
+        <label for="Sleep Duration">Sleep Duration (in hours)</label>
+        <input type="number" name="Sleep Duration" min="1" max="24" step="1" required>
+
+        <label for="Dietary Habits">Dietary Habits</label>
+        <select name="Dietary Habits" required>
+            <option value="Healthy">Healthy</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Unhealthy">Unhealthy</option>
+        </select>
+
+        <label for="Suicidal_Thoughts">Suicidal Thoughts</label>
+        <select name="Suicidal_Thoughts" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <label for="Financial Stress">Financial Stress (1 to 5)</label>
+        <input type="number" name="Financial Stress" min="1" max="5" step="1" required>
+
+        <label for="Family History of Mental Illness">Family History of Mental Illness</label>
+        <select name="Family History of Mental Illness" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <button type="submit">Predict Mental Health</button>
+    </form>
+
+</body>
+</html>
+
