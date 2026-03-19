@@ -85,13 +85,6 @@ http://127.0.0.1:5000/
 }
 ```
 
----
-
-## 📸 Screenshots
-
-(Add screenshots of your UI here)
-
----
 
 ## 📌 Future Improvements
 
