@@ -1,12 +1,14 @@
 from flask import Flask, request, jsonify, render_template
 import joblib
+import shap
+import math
 import numpy as np
 import pandas as pd
-
+from utils.chatbot import chatbot_response
 app = Flask(__name__)
 
-model = joblib.load("model/logreg_model.pkl")
-model_features = joblib.load("model/model_features34.pkl")
+model = joblib.load("models/logreg_model.pkl")
+model_features = joblib.load("models/model_features34.pkl")
 
 factor_columns = [
     "Suicidal_Thoughts",
@@ -50,12 +52,47 @@ def predict():
         probabilities = model.predict_proba(input_df)[0]
         confidence = round(probabilities[prediction] * 100, 2)
         
-        factor_scores = {factor: user_input[factor] for factor in factor_columns if factor in user_input}
-
-        return render_template('result.html', prediction=prediction_text, confidence_score=confidence, factor_scores=factor_scores)
+        classifier = model.named_steps['classifier']
+        coefficients = classifier.coef_[0]
+        shap_dict = {}
+        
+        for i, feature in enumerate(model_features):
+            try:
+                value = float(user_input.get(feature, 0))
+            except:
+                value = 1 # for categorical
+            
+            shap_dict[feature] = abs(coefficients[i] * value)
+        values = list(shap_dict.values())
+        if values:
+            for key in shap_dict:
+                shap_dict[key] = math.log1p(shap_dict[key])
+            
+            max_val = max(shap_dict.values())
+            min_threshold = 1
+            for key in shap_dict:
+                shap_dict[key] = (shap_dict[key] / max_val) * 10
+                if shap_dict[key] < min_threshold:
+                    shap_dict[key] = min_threshold
+                
+        return render_template('result.html', prediction=prediction_text, confidence_score=confidence, shap_values=shap_dict, user_data=user_input)
 
     except Exception as e:
         return f"Error: {str(e)}"
 
+@app.route('/chat', methods=['POST'])
+def chat():
+    try:
+        user_message = request.json.get("message")
+        
+        response, intent = chatbot_response(user_message)
+        
+        return jsonify({
+            "response": response,
+            "intent": intent
+        })
+        
+    except Exception as e:
+        return jsonify({"error: str(e)"})
 if __name__ == '__main__':
     app.run(debug=True)

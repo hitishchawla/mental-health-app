@@ -1,0 +1,475 @@
+{
+    "intents": [
+        {
+            "tag": "sadness",
+            "patterns": [
+                "I am so unhappy, why can't I just do things right?",
+                "I am feeling very low functioning right now.",
+                "Nothing makes me happy anymore.",
+                "Is it selfish to cry in public? I feel awful.",
+                "Why am I crying? I can't even determine if I'm happy or sad.",
+                "I think about the life I used to have and my chest hurts.",
+                "I just lay here and feel so sad every single day.",
+                "I need a friend, I am so sad and lonely, please help.",
+                "I'm feeling very lonely and I need someone to talk to.",
+                "I am so fucking tired of feeling like this. A deep sadness in my bones.",
+                "Just feeling real low today. It sucks.",
+                "I am truly numb. Music does not even work anymore.",
+                "I am so tired of never feeling good enough.",
+                "Anyone else feeling painfully lonely and worthless today?",
+                "I'm feeling absolutely miserable here.",
+                "It hurts so much and I cannot even cry about it.",
+                "I just do not feel like I deserve to be happy",
+                "Having been miserable for so long",
+                "I think I am scared of my happiness being selfish",
+                "I feel so numb, like nothing matters anymore",
+                "I just want to cry until I can't anymore",
+                "It pretty much shattered any progress I had made",
+                "I feel like such a burden to everyone",
+                "Am I depressed or just really sad?",
+                "I feel low and empty",
+                "I feel empty inside",
+                "I feel low and alone",
+                "The worst feeling is having emotions bottled up",
+                "I have not felt good in such a long time",
+                "Sometimes I feel sad and sometimes just nothing"
+            ],
+            "responses": [
+                "I'm really sorry you're feeling this way. Do you want to talk about what's been bothering you?",
+                "That sounds really tough. I'm here to listen.",
+                "You're not alone - I'm here with you.",
+                "It's okay to feel like this sometimes. You don't have to go through it alone.",
+                "Do you want to share what's making you feel this way?",
+                "I hear you. Sometimes just expressing it can help a little.",
+                "That must be really hard. What's been on your mind lately?",
+                "You're allowed to feel this way. Take your time.",
+                "Would you like to talk more about what happened?",
+                "I'm here for you. You can share anything."
+            ]
+        },
+        {
+            "tag": "anxiety",
+            "patterns": [
+                "I feel a bit nervous",
+                "Hi, I'm feeling really anxious right now",
+                "I feel uneasy",
+                "I am slightly anxious about something",
+
+                "I feel like I can't breathe",
+                "My chest feels tight",
+                "My heart is racing",
+                "I feel dizzy",
+                "I am shaking and can't stop",
+
+                "I can't stop overthinking",
+                "My mind is racing",
+                "I keep thinking what if",
+                "I feel like something bad will happen",
+                "I am worried about the future",
+
+                "I feel anxious right now",
+                "I feel overwhelmed",
+                "I feel like I am losing control",
+                "I can't calm down",
+                "I feel tense and nervous",
+                "Everything feels too much",
+                "I feel on edge",
+                "Hi bot, I'm feeling very uneasy",
+
+                "I am having a panic attack",
+                "I feel a sense of impending doom"
+            ],
+            "responses": [
+                "It sounds like you're feeling really anxious. Try taking a slow deep breath with me.",
+                "You're safe right now. Let's take this one step at a time.",
+                "I'm here with you. Do you want to talk about what's making you feel this way?",
+                "Try focusing on your breathing - slow inhale, slow exhale.",
+                "That sounds overwhelming. You don't have to go through it alone.",
+                "Let's slow things down together. What's been on your mind?",
+                "It's okay to feel anxious sometimes. You're not losing control.",
+                "Would it help to talk through what you're worried about?",
+                "Try grounding yourself - can you name 5 things you can see around you?",
+                "I'm here with you. You can take your time."
+]
+
+        },
+        {
+            "tag": "stress",
+            "patterns": [
+                
+                "I feel a bit stressed today",
+                "I have a lot to do",
+    
+                "I have too much on my plate",
+                "Hello, I need help with my stress",
+                "I feel like I'm drowning in work",
+                "There is too much going on",
+                "I can't handle all these responsibilities",
+                "Hey, I am struggling with a lot of tension today",
+                "Everything is piling up",
+                "I feel like I'm at my breaking point",
+    
+                "I am so burnt out",
+                "I feel exhausted from the pressure",
+                "I'm tired but I can't relax",
+                "I've been feeling drained lately",
+                "I can't focus because there's too much to do",
+    
+                "The pressure at work is unbearable",
+                "I'm feeling really stressed out",
+                "I feel under a lot of strain",
+                "I feel stretched too thin",
+    
+                "I get annoyed at small things",
+                "Everything feels like a chore",
+                "I need a break from everything",
+                "I'm struggling with the daily grind"
+            ],
+            "responses": [
+                "It sounds like you have a lot on your plate right now. Maybe we can break things into smaller steps?",
+                "That does sound overwhelming. What's the most urgent thing you need to focus on first?",
+                "It's okay to take a pause. Even a short break can help reset your mind.",
+                "You don't have to do everything at once. One step at a time is enough.",
+                "That kind of pressure can be exhausting. Have you had a chance to rest properly?",
+                "Maybe try writing down everything on your mind - it can help organize your thoughts.",
+                "You're handling a lot right now. Be sure to give yourself some credit.",
+                "Would it help to prioritize just one or two tasks for now?",
+                "Taking a small break might actually help you work better afterward.",
+                "You don't have to carry everything alone. It's okay to slow down."
+]
+
+        },
+        {
+            "tag": "loneliness",
+            "patterns": [
+                
+    "I feel a bit lonely today",
+    "I wish I had more people around me",
+    
+    "I feel so alone",
+    "I have no one to talk to",
+    "I feel like I don't belong anywhere",
+    "Nobody understands me",
+    "I feel invisible",
+    
+    "I'm surrounded by people but still feel lonely",
+    "I wish I had someone to share my day with",
+    "Everyone else has friends except me",
+    "I feel disconnected from others",
+    "I don't have close friends",
+    "I feel left out",
+    
+    "I feel empty inside",
+    "I just want to matter to someone",
+    "I spend most of my time alone",
+    "I feel forgotten",
+    "I feel unwanted",
+    "I need human connection",
+    "I feel like I'm drifting through life alone"
+            ],
+            "responses": [
+                "That sounds really lonely. I'm here with you - you don't have to go through this alone.",
+                "I hear you. Feeling disconnected can be really painful.",
+                "You matter, even if it doesn't feel like it right now.",
+                "Would you like to talk about what's been making you feel this way?",
+                "Sometimes even a small connection can help - I'm here to listen.",
+                "It's okay to feel this way. You're not invisible here.",
+                "I'm really glad you shared this with me.",
+                "Do you want to talk about your day? I'd like to hear it.",
+                "You deserve connection and care, just like anyone else.",
+                "I'm here with you - take your time."
+]
+
+        },
+        {
+            "tag": "burnout",
+            "patterns": [
+    "I feel mentally drained lately",
+    "I don't have the energy like before",
+    
+    "I am extremely tired all the time",
+    "I feel like I'm running on empty",
+    "I feel drained every day",
+    "I wake up already tired",
+    "I've been working too hard and now I'm hitting a wall",
+    "I feel physically exhausted by my daily responsibilities",
+    
+    "I have lost interest in my work",
+    "My job is making me feel completely depleted",
+    "I don't care about what I do anymore",
+    "Nothing feels worth the effort",
+    "I am just going through the motions",
+    "I feel detached from my responsibilities",
+    
+    "I struggle to find meaning in what I do",
+    "I used to enjoy this but not anymore",
+    
+    "I feel like I've reached my limit",
+    "I am emotionally overextended and need to crash",
+    "I've been pushing myself too hard",
+    "Even taking a break doesn't help",
+    
+    "I can't focus on anything",
+    "My brain feels foggy",
+    "I have no energy to be social"
+],
+            "responses": [
+    "It sounds like you've been pushing yourself for a long time. That kind of exhaustion is real.",
+    "Burnout can feel overwhelming. It's not just tiredness - it's deeper than that.",
+    "You don't have to keep running at full speed. It's okay to slow down.",
+    "It sounds like you need more than just rest - maybe a real reset.",
+    "You've been carrying a lot for too long. It makes sense you're feeling this way.",
+    "Even small steps toward rest can help. You don't have to fix everything at once.",
+    "You're not lazy - you're exhausted. There's a difference.",
+    "Would it help to talk about what's been draining you the most?",
+    "Taking care of yourself right now is important. You've earned that.",
+    "You don't have to keep pushing through this alone."
+]
+
+        },
+        {
+            "tag": "motivation",
+            "patterns": [
+    "I don't feel motivated today",
+    "I have no energy to start anything",
+    "I feel lazy to do anything",
+    
+    "I keep procrastinating on my tasks",
+    "I can't start my work",
+    "I keep delaying things",
+    "I want to do things but I can't start",
+    "I have no willpower to begin my work",
+    
+    "I can't focus on my tasks",
+    "I want to be productive but my mind won't let me start",
+    "I feel stuck and can't find the drive to do anything",
+    
+    "I don't feel like doing anything",
+    "I have no drive today",
+    "I don't feel like working",
+    
+    "I feel resistance when I try to work",
+    "I just can't get myself to start",
+    
+    "I feel uninspired",
+    "I feel bored with everything",
+    "I lack motivation"
+],
+            "responses": [
+    "It's okay to feel unmotivated sometimes. Maybe try starting with something really small.",
+    "You don't have to do everything at once - just take the first step.",
+    "Sometimes beginning is the hardest part. What's one small thing you can do right now?",
+    "Even a little progress counts. You're not stuck forever.",
+    "Try setting a tiny goal - something you can finish in 5-10 minutes.",
+    "You don't need to feel motivated to start. Action can create motivation.",
+    "It's okay to go slow today. Progress is still progress.",
+    "Would it help to break your task into smaller pieces?",
+    "Starting small is still starting. You've got this.",
+    "I'm here - want to tell me what you're trying to work on?"
+]
+
+        },
+        {
+            "tag": "greeting",
+            "patterns": [
+    "hi",
+    "hello",
+    "hey",
+    "Yo, are you there?",
+
+    "Good evening",
+
+    "Hey bot, how's it going?",
+
+    "Anyone around to talk?",
+
+    "What's up",
+
+    "Morning!",
+
+    "Hey there",
+
+    "I'm back",
+
+    "Hiya",
+    "Hlo",
+    "good morning",
+    "good evening",
+    "hi there",
+    "hello there",
+    "hey there",
+    "how are you",
+    "is anyone there"
+],
+            "responses": [
+    "Hello! How are you feeling today?",
+    "Hi there, I'm here to listen.",
+    "Hey! What's on your mind?",
+    "Hello, how can I help you today?",
+    "Hi, feel free to share anything.",
+    "Hey! I'm here and ready to listen. How's your day been so far?",
+    "Hello! It's good to see you. What's on your mind today?",
+    "Hi! I'm glad you reached out. How are you feeling in this moment?",
+    "Hey there, I'm here for you."
+]
+
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+    "bye",
+    "I'm going to sleep now",
+    "Catch you later",
+    "Talk to you tomorrow",
+    "I'm leaving for now",
+    "Gotta go",
+    "See ya",
+    "Peace out",
+    "Goodnight",
+    "I'm signing off",
+    "TATA",
+    "goodbye",
+    "see you later",
+    "talk to you later",
+    "I have to go now",
+    "catch you later",
+    "I'm signing off",
+    "see you soon"
+],
+            "responses": [
+    "Take care. I'm here whenever you need to talk.",
+    "Goodbye! Wishing you well.",
+    "See you later - take care of yourself.",
+    "You're always welcome to come back and talk.",
+    "Take care, and be kind to yourself.",
+    "Take care! Remember to be kind to yourself. I'll be here whenever you need me.",
+    "Goodbye! I hope our chat helped a little. Have a restful time.",
+    "Signing off for now. Stay strong and don't hesitate to come back if things get heavy."
+]
+
+        },
+        {
+            "tag": "gratitude",
+            "patterns": [
+    "thank you",
+    "thanks",
+    "That was really helpful",
+    "You're a lifesaver",
+    "Thanks for the support",
+    "I appreciate your help",
+    "Thanks, I feel much better",
+    "That's exactly what I needed to hear",
+    "Many thanks",
+    "Cheers for that",
+    "Glad I talked to you",
+    "Thanks for being there",
+    "thanks a lot",
+    "I appreciate it",
+    "thank you so much",
+    "thanks for listening",
+    "I feel better now thanks",
+    "I appreciate your help"
+],
+            "responses": [
+    "You're welcome. I'm glad I could help.",
+    "I'm really glad you're feeling a bit better.",
+    "Anytime - I'm here for you.",
+    "You are very welcome! I'm just glad I could be here for you.",
+    "It's my pleasure. Helping you navigate these feelings is exactly what I'm here for.",
+    "Anytime! I'm happy to hear that helped. We're in this together.",
+    "That means a lot. Take care of yourself.",
+    "Happy to help. You're doing great."
+]
+
+        },
+        {
+            "tag": "crisis",
+            "patterns": [
+    "I want to die",
+    "I want to end my life",
+    "I don't want to live anymore",
+    "I feel like ending it all",
+    
+    "I can't do this anymore",
+    "Everything hurts too much",
+    "I feel like I have no reason to live",
+    
+    "I wish I wouldn't wake up",
+    "I feel like disappearing",
+    "I don't care if I exist anymore",
+    
+    "The world would be better without me",
+    "I am a burden to everyone",
+    "There is no hope left for me",
+    
+    "Please help me",
+    "I am scared of what I might do",
+    "I need help right now",
+    
+    "I feel like I might hurt myself",
+    "I am at my breaking point"
+],
+            "responses": [
+    "I'm really sorry you're feeling this way. You're not alone, and help is available.",
+    "It sounds like you're going through a lot. Please consider reaching out to someone you trust.",
+    "I'm really glad you shared this. It might help to talk to a close friend, family member, or a professional.",
+    "You deserve support and care. If you can, please reach out to a mental health professional or a helpline.",
+    "I'm here for you, but I'm just an AI. Please talk to someone who can help right now. You can contact the Kiran Mental Health Helpline at 1800-599-0019. Your life matters.",
+    "I'm here with you, but I encourage you to seek immediate support from someone who can help you in real life.",
+    "If you're in immediate danger, please contact your local emergency number right now.",
+    "I am very concerned about what you're sharing. Please reach out to a professional immediately. You can call the AASRA helpline at +91-9820466726 or the Vandrevala Foundation at 1860-266-2345. You don't have to go through this alone.",
+    "Talking to someone in real life can really help. You don't have to go through this alone."
+]
+
+        },
+        {
+            "tag": "help",
+            "patterns": [
+    "help",
+    "can you help me",
+    "what can you do",
+    "how can you help me",
+    "what is this chatbot",
+    "what do you do",
+    "how does this work",
+    "I need help",
+    "can you guide me",
+    "what can I ask you"
+],
+            "responses": [
+    "I'm here to support you with your mental well-being. You can talk to me about how you're feeling.",
+    "You can share anything on your mind - stress, anxiety, or just how your day is going.",
+    "I can listen, offer support, and help you reflect on your feelings.",
+    "Feel free to tell me what you're going through - I'm here to help.",
+    "You can talk to me about your thoughts, feelings, or anything that's bothering you.",
+    "I'm here to listen and support you. What would you like to talk about?"
+]
+
+        },
+        {
+  "tag": "about",
+  "patterns": [
+    "who are you?",
+    "what is your name?",
+    "what can you do?",
+    "are you a doctor?",
+    "help me understand your purpose"
+  ],
+  "responses": [
+    "I'm your AI mental health assistant. I'm here to listen, provide support, and help you navigate your feelings. I am not a doctor, but I can offer a safe space to talk.",
+    "I am a chatbot designed to help you manage stress, anxiety, and other emotions. How can I support you today?"
+  ]
+},
+{
+  "tag": "fallback",
+  "patterns": [
+    ""
+  ],
+  "responses": [
+    "I'm not sure I understand. Could you try rephrasing that?",
+    "I'm still learning. Could you tell me more about how you're feeling so I can help?",
+    "I didn't quite catch that. Could you explain it in a different way?"
+  ]
+}
+    ]
+}

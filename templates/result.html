@@ -140,75 +140,141 @@
 </script>
 
 <script>
-// Replace with your actual data passed from Flask
-const contributingFactors = {
-    labels: ["Sleep", "Academic Pressure", "Financial Stress", "Diet", "Study Satisfaction", "Suicidal Thoughts", "Family History"],
-    values: [6, 8, 7, 4, 5, 3, 2],  // Dummy values, update with real ones
-};
+    // Get data from Flask
+    const shapValues = JSON.parse('{{ shap_values | tojson | safe }}');
+    console.log("SHAP:", shapValues)
+    const userData = JSON.parse('{{user_data | tojson | safe}}');
 
-// Bar Chart
-const ctxBar = document.getElementById('barChart').getContext('2d');
-new Chart(ctxBar, {
-    type: 'bar',
-    data: {
-        labels: contributingFactors.labels,
-        datasets: [{
-            label: 'Score',
-            data: contributingFactors.values,
-            backgroundColor: 'rgba(54, 162, 235, 0.6)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            title: {
-                display: true,
-                text: 'Contributing Factors'
+    // Convert categorical + numeric properly
+    function processShap(shap) {
+        return {
+            "Sleep": Math.abs(shap["Sleep Duration"]),
+            "Academic Pressure": Math.abs(shap["Academic Pressure"]),
+            "Financial Stress": Math.abs(shap["Financial Stress"]),
+            "Dietary Habits": Math.abs(shap["Dietary Habits"]),
+            "Study Satisfaction": Math.abs(shap["Study Satisfaction"]),
+            "Suicidal Thoughts": Math.abs(shap["Suicidal_Thoughts"]),
+            "Family History": Math.abs(shap["Family History of Mental Illness"])
+        };
+    }
+
+    const processedData = processShap(shapValues);
+    const labels = Object.keys(processedData);
+    const finalValues = Object.values(processedData);
+
+    function processUserData(data) {
+        return {
+            "Sleep": parseFloat(data["Sleep Duration"]) || 0,
+            "Academic Pressure": parseFloat(data["Academic Pressure"]) || 0,
+            "Financial Stress": parseFloat(data["Financial Stress"]) || 0,
+            "Dietary Habits": data["Dietary Habits"] === "Healthy" ? 8 : data["Dietary Habits"] === "Moderate" ? 5 : 2,
+            "Study Satisfaction": parseFloat(data["Study Satisfaction"]) || 0,
+            "Suicidal Thoughts": data["Suicidal_Thoughts"] === "Yes" ? 9 : 2,
+            "Family History": data["Family History of Mental Illness"] === "Yes" ? 8 : 2
+        };
+    }
+
+    const userProfileData = processUserData(userData);
+    const radarLabels = Object.keys(userProfileData);
+    const radarValues = Object.values(userProfileData);
+
+    let animatedBar = new Array(finalValues.length).fill(0);
+    let animatedRadar = new Array(radarValues.length).fill(0);
+
+    function animateChart(chart, targetValues, animatedArray) {
+        let progress = 0;
+        const duration = 1200; // ms
+        const startTime = performance.now();
+
+        function animate(currentTime) {
+            const elapsed = currentTime - startTime;
+            progress = Math.min(elapsed / duration, 1);
+
+            for (let i = 0; i < targetValues.length; i++) {
+                animatedArray[i] = targetValues[i] * progress;
             }
-        },
-        scales: {
-            y: {
-                beginAtZero: true
+
+            chart.data.datasets[0].data = animatedArray;
+            if (Math.floor(progress * 30) !== Math.floor((progress - 0.03) * 30)) {
+                            chart.update('none');
+            }
+            if (progress < 1){
+                requestAnimationFrame(animate);
             }
         }
-    }
-});
-</script>
 
-<script>
-// Radar Chart
-const ctxRadar = document.getElementById('radarChart').getContext('2d');
-new Chart(ctxRadar, {
-    type: 'radar',
-    data: {
-        labels: contributingFactors.labels,
-        datasets: [{
-            label: 'User Profile',
-            data: contributingFactors.values,
-            fill: true,
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgb(255, 99, 132)',
-            pointBackgroundColor: 'rgb(255, 99, 132)'
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            title: {
-                display: true,
-                text: 'Mental Health Profile'
-            }
+        requestAnimationFrame(animate)
+    }
+    // Bar Chart
+    const ctxBar = document.getElementById('barChart').getContext('2d');
+    const barChart = new Chart(ctxBar, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Score',
+                data: animatedBar,
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
         },
-        scales: {
-            r: {
-                suggestedMin: 0,
-                suggestedMax: 10
+        options: {
+            animation: false,
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Contributing Factors'
+                }
+            },
+            scales: {
+                y: {
+                    min: 0,
+                    max: 10
+                }
             }
         }
-    }
-});
+    });
+
+    // Radar Chart
+    const ctxRadar = document.getElementById('radarChart').getContext('2d');
+    const radarChart = new Chart(ctxRadar, {
+        type: 'radar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'User Profile',
+                data: animatedRadar,
+                fill: true,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgb(255, 99, 132)',
+                pointBackgroundColor: 'rgb(255, 99, 132)'
+            }]
+        },
+        options: {
+            animation: false,
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Mental Health Profile'
+                }
+            },
+            scales: {
+                r: {
+                    suggestedMin: 0,
+                    suggestedMax: 10
+                }
+            },
+            ticks: {
+                stepSize: 2
+            }
+        }
+    });
+
+    animateChart(barChart, finalValues, animatedBar);
+    animateChart(radarChart, radarValues, animatedRadar);
 </script>
 <script>
     const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
