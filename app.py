@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify, render_template
 import joblib
-import shap
 import math
 import numpy as np
 import pandas as pd
