@@ -1,22 +1,9 @@
 import nltk
+import os
 import string
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
-
-try:
-    nltk.data.find('tokenizers/punkt')
-except:
-    nltk.download('punkt')
-
-try:
-    nltk.data.find('corpora/stopwords')
-except:
-    nltk.download('stopwords')
-
-try:
-    nltk.data.find('corpora/wordnet')
-except:
-    nltk.download('wordnet')
+nltk.data.path.append(os.path.join(os.getcwd(), "nltk_data"))
 
 lemmatizer = WordNetLemmatizer()
 stop_words = set(stopwords.words('english'))
